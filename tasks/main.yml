@@ -12,7 +12,8 @@
 
 - name: install oh-my-zsh
   git: repo=https://github.com/robbyrussell/oh-my-zsh dest=~/.oh-my-zsh
-  sudo: false
+  sudo: true
+  sudo_user: "{{user}}"
 
 - name: Backing up existing ~/.zshrc
   command: if [ -f ~{{user}}/.zshrc ]; then mv ~{{user}}/.zshrc{,.orig}; fi
